@@ -19,7 +19,7 @@ class Cities
      */
     private $id;
     /**
-     * @ORM\ManyToOne(targetEntity=departments::class, inversedBy="cities")
+     * @ORM\ManyToOne(targetEntity=Departments::class, inversedBy="cities")
      * @ORM\JoinColumn(nullable=false)
      */
     private $department;

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Artists;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,6 +16,7 @@ class ArtistsType extends AbstractType
             ->add('name')
             ->add('descripton')
             ->add('socialLink')
+            ->add('picture', FileType::class)
             ->add('festival')
         ;
     }
