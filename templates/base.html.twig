@@ -28,8 +28,6 @@
 </head>
 
 <body>
-
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ path('home') }}"><img class="w-75 img-fluid" src="{{ asset('img/Festilab.png')}}"
@@ -40,7 +38,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
           <li class="nav-item me-5">
             <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Festivals</a>
           </li>
@@ -71,18 +68,13 @@
     </div>
   </nav>
 
-
-
-
   <main>
     {% block body %}{% endblock %}
   </main>
-
 
   <footer>
     FOOTER
   </footer>
 
 </body>
-
 </html>
