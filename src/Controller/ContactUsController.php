@@ -41,7 +41,7 @@ class ContactUsController extends AbstractController
             $entityManager->persist($contactU);
             $entityManager->flush();
 
-            return $this->redirectToRoute('contact_us_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('contact_us/new.html.twig', [
