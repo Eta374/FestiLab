@@ -1,20 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Start link css files #}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        {# End link css files #}
-        {# Start link js files #}
-        <script src="{{ asset('public\js\bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('public\js\app.js') }}"></script>
-        {# End link js files #}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    {% block title %}Welcome!
+    {% endblock %}
+  </title>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="{{ asset ('css/bootstrap.css') }}">
+  <link href="{{ asset('css/app.css') }}" type="text/css" rel="stylesheet">
+
+  <script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
+
+  <script src="{{ asset('js/app.js') }}"></script>
+
+  <!--ICONS-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ path('home') }}"><img class="w-75 img-fluid" src="{{ asset('img/Festilab.png')}}"
+          alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+          <li class="nav-item me-5">
+            <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Festivals</a>
+          </li>
+          <li class="nav-item me-5">
+            <a class="nav-link active" aria-current="page" href="{{ path('home') }}">News</a>
+          </li>
+          <li class="nav-item me-5">
+            <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Partenaires</a>
+          </li>
+          <li class="nav-item me-5">
+            <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Contact</a>
+          </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <form class="d-flex">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Rechercher" aria-label="Rechercher"
+                aria-describedby="button-addon2">
+              <input type="text" class="form-control" placeholder="Par date" aria-label=""
+                aria-describedby="button-addon2">
+              <input type="text" class="form-control" placeholder="par région" aria-label=""
+                aria-describedby="button-addon2">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2">OK</button>
+            </div>
+          </form>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  <main>
+    {% block body %}{% endblock %}
+  </main>
+
+
+  <footer>
+    FOOTER
+  </footer>
+
+</body>
+
 </html>
