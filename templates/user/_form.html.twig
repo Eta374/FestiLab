@@ -1,4 +1,7 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_row(form.email) }}
+    <a href="{{ path('app_forgot_password_request') }}">reset password</a>
+    {{ form_row(form.pseudo) }}
+    {{ form_row(form.roles) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
