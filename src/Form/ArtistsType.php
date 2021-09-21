@@ -16,7 +16,12 @@ class ArtistsType extends AbstractType
             ->add('name')
             ->add('descripton')
             ->add('socialLink')
-            ->add('picture', FileType::class)
+            ->add('picture', FileType::class, [
+                // 'label' => false,
+                // 'multiple' => false,
+                'mapped' => false,
+                // 'required' => false,
+            ])
             ->add('festival')
         ;
     }

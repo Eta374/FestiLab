@@ -23,7 +23,7 @@
                 <td>{{ artist.name }}</td>
                 <td>{{ artist.descripton }}</td>
                 <td>{{ artist.socialLink }}</td>
-                <td>{{ artist.picture }}</td>
+                <td><img class="w-75" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt="">{{ artist.picture }}</td>
                 <td>
                     <a href="{{ path('artists_show', {'id': artist.id}) }}">show</a>
                     <a href="{{ path('artists_edit', {'id': artist.id}) }}">edit</a>
