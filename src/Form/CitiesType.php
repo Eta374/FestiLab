@@ -21,12 +21,10 @@ class CitiesType extends AbstractType
             ->add('zip')
             ->add('longitudeDeg')
             ->add('latitudeDeg')
-            // ->add('department')
-            ->add('department', ChoiceType::class, [
+            //->add('department')
+            ->add('department', EntityType::class, [
                 'class' => Departments::class,
-                'multiple' => true,
-                'expanded' => true,
-                'choice_label' => 'name',
+                 'choice_label' => 'name',
             ])
         ;
     }
