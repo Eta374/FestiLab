@@ -59,10 +59,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $modifiedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Festivals::class, mappedBy="Editor")
+     */
+    private $festival;
+
 
     public function __construct()
     {
         $this->festivals = new ArrayCollection();
+        $this->festival = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -198,6 +204,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setModifiedAt(\DateTimeInterface $modifiedAt): self
     {
         $this->modifiedAt = $modifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Festivals[]
+     */
+    public function getFestival(): Collection
+    {
+        return $this->festival;
+    }
+
+    public function addFestival(Festivals $festival): self
+    {
+        if (!$this->festival->contains($festival)) {
+            $this->festival[] = $festival;
+            $festival->setEditor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFestival(Festivals $festival): self
+    {
+        if ($this->festival->removeElement($festival)) {
+            // set the owning side to null (unless already changed)
+            if ($festival->getEditor() === $this) {
+                $festival->setEditor(null);
+            }
+        }
 
         return $this;
     }
