@@ -39,6 +39,11 @@ class Artists
      */
     private $festival;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $picture;
+
     public function __construct()
     {
         $this->festival = new ArrayCollection();
@@ -105,6 +110,18 @@ class Artists
     public function removeFestival(Festivals $festival): self
     {
         $this->festival->removeElement($festival);
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
