@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Modifier Département{% endblock %}
+
+{% block body %}
+    <h1>Modifier Département</h1>
+
+    {{ include('departments/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('departments_index') }}"><i class="fas fa-undo-alt"></i></a>
+
+    {{ include('departments/_delete_form.html.twig') }}
+{% endblock %}
