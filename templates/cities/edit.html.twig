@@ -1,0 +1,14 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Modifier Ville{% endblock %}
+
+{% block body %}
+    <h1>Modifier Ville</h1>
+
+    {{ include('cities/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+    {# <i class="far fa-save"></i> #}
+
+    <a href="{{ path('cities_index') }}"><i class="fas fa-undo-alt"></i></a>
+
+    {{ include('cities/_delete_form.html.twig') }}
+{% endblock %}

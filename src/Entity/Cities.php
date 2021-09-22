@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\CitiesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Places;
+use App\Entity\Departments;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CitiesRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=CitiesRepository::class)
@@ -19,7 +21,7 @@ class Cities
      */
     private $id;
     /**
-     * @ORM\ManyToOne(targetEntity=departments::class, inversedBy="cities")
+     * @ORM\ManyToOne(targetEntity=Departments::class, inversedBy="cities")
      * @ORM\JoinColumn(nullable=false)
      */
     private $department;

@@ -35,6 +35,14 @@ class ArtistsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // START UPLOAD PICTURES
+                // On récupère les images transmises
+                $pictures = $form-> get('picture')->getData();
+                $artists = $form-> get('name');
+                // On génère un nouveau nom de fichier
+                $name_files = md5(uniqid()).'.'.$pictures->guessExtension();
+
+            // END UPLOAD PICTURES
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($artist);
             $entityManager->flush();
