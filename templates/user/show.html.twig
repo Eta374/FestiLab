@@ -8,10 +8,6 @@
 <table class="table">
     <tbody>
         <tr>
-            <th>Id</th>
-            <td>{{ user.id }}</td>
-        </tr>
-        <tr>
             <th>Email</th>
             <td>{{ user.email }}</td>
         </tr>
@@ -48,5 +44,7 @@
 {% endif %}
 <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
 
+{% if is_granted('ROLE_ADMIN') %}
 {{ include('user/_delete_form.html.twig') }}
+{% endif %}
 {% endblock %}

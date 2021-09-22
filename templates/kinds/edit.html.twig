@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Kinds{% endblock %}
+
+{% block body %}
+    <h1>Edit Kinds</h1>
+
+    {{ include('kinds/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('kinds_index') }}">back to list</a>
+
+    {{ include('kinds/_delete_form.html.twig') }}
+{% endblock %}

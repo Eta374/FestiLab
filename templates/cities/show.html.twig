@@ -1,50 +1,53 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Ville{% endblock %}
+{% block title %}Ville
+{% endblock %}
 
 {% block body %}
-    <h1>Ville</h1>
+	<h1>Ville</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ city.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom Capitale</th>
-                <td>{{ city.nameUppercase }}</td>
-            </tr>
-            <tr>
-                <th>Nom Minuscule</th>
-                <td>{{ city.nameSimple }}</td>
-            </tr>
-            <tr>
-                <th>Nom Réel</th>
-                <td>{{ city.nameReal }}</td>
-            </tr>
-            <tr>
-                <th>Code Postal</th>
-                <td>{{ city.zip }}</td>
-            </tr>
-            {# <tr>
-                <th>Département</th>
-                <td>{{ city.departement.name }}</td>
-            </tr> #}
-            <tr>
-                <th>Longitude Deg</th>
-                <td>{{ city.longitudeDeg }}</td>
-            </tr>
-            <tr>
-                <th>Latitude Deg</th>
-                <td>{{ city.latitudeDeg }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ city.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom Capitale</th>
+				<td>{{ city.nameUppercase }}</td>
+			</tr>
+			<tr>
+				<th>Nom Minuscule</th>
+				<td>{{ city.nameSimple }}</td>
+			</tr>
+			<tr>
+				<th>Nom Réel</th>
+				<td>{{ city.nameReal }}</td>
+			</tr>
+			<tr>
+				<th>Code Postal</th>
+				<td>{{ city.zip }}</td>
+			</tr>
+			<tr>
+				<th>Département</th>
+				<td>{{ city.department.name }}</td>
+			</tr>
 
-    <a href="{{ path('cities_index') }}"><i class="fas fa-undo-alt"></i></a>
-
-    <a href="{{ path('cities_edit', {'id': city.id}) }}"><i class="far fa-edit"></i></a>
-
-    {{ include('cities/_delete_form.html.twig') }}
+			<tr>
+				<th>Longitude Deg</th>
+				<td>{{ city.longitudeDeg }}</td>
+			</tr>
+			<tr>
+				<th>Latitude Deg</th>
+				<td>{{ city.latitudeDeg }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="{{ path('cities_index') }}">
+		<i class="fas fa-undo-alt"></i>
+	</a>
+	<a href="{{ path('cities_edit', {'id': city.id}) }}">
+		<i class="far fa-edit"></i>
+	</a>
+	{{ include('cities/_delete_form.html.twig') }}
 {% endblock %}
