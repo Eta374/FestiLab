@@ -55,7 +55,9 @@ class FestivalsController extends AbstractController
                 
                 // On crée l'image dans la base de données
                 $img = new Pictures();
-                $img->setName($fichier);
+                $img->setName($fichier)
+                    ->setDescription($fichier)
+                    ->setLink($image);
                 $festival->addPicture($img);
             }
 
