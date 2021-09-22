@@ -1,0 +1,87 @@
+.h-25 {
+  height: 25vh;
+}
+
+.h-50 {
+  height: 50vh;
+}
+
+.h-75 {
+  height: 75vh;
+}
+
+.h-100 {
+  height: 100vh;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+}
+
+nav i {
+  color: #7ecbb6;
+  font-size: 1.2rem;
+}
+nav i:hover {
+  color: #E97171;
+  font-size: 1.2rem;
+  transition: 1s;
+}
+
+section .gche {
+  min-height: 100vh;
+  width: 140px;
+}
+section .navbarAd {
+  color: #242833 !important;
+}
+section .navbarAd:hover {
+  color: #E97171 !important;
+  transition: 1s;
+}
+
+article {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+article i {
+  color: #7ecbb6;
+  font-size: 1.2rem;
+}
+article i:hover {
+  color: #E97171;
+  font-size: 1.2rem;
+  transition: 1s;
+}
+article .btn {
+  color: #242833;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #7ecbb6;
+  border-color: #7ecbb6;
+}
+article .btn:hover {
+  color: #242833;
+  background-color: #E97171;
+  border-color: #E97171;
+}
+
+footer .copyright {
+  color: #7ecbb6;
+  text-align: center;
+  font-size: 0.8rem;
+}
+footer .copyright a {
+  color: #7ecbb6;
+  text-decoration: none;
+}
+footer .copyright a:hover {
+  color: #E97171;
+  transition: 1s;
+}/*# sourceMappingURL=appAdmin.css.map */
