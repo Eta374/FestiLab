@@ -20,11 +20,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public const ROLE_USER = 'ROLE_USER';
     public const ROLE_ADMIN = 'ROLE_ADMIN';
     public const ROLE_EDITOR = 'ROLE_EDITOR';
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
+
+/**
+* @ORM\Id
+* @ORM\GeneratedValue
+* @ORM\Column(type="integer")
+*/
     private $id;
 
     /**
@@ -241,5 +242,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
 }

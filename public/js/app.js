@@ -9,3 +9,13 @@ window.addEventListener('scroll', () => { /* récuperation de la valeur du scrol
         nav.classList.remove( "bg-glass");
     }
 })
+
+// ....................................... ACTIVATION DU DATEPICKER
+$(function () {
+
+    // ACTIVATION DU DATEPICKER 
+    $('.datepicker').datepicker({
+        clearBtn: true,
+        format: "dd/mm/yyyy"
+    });
+});
