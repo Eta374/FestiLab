@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Nouveau Lieu{% endblock %}
+
+{% block body %}
+    <h1>Nouveau Lieu</h1>
+
+    {{ include('places/_form.html.twig') }}
+
+    <a href="{{ path('places_index') }}"><i class="fas fa-undo-alt"></i></a>
+{% endblock %}

@@ -9,7 +9,6 @@ parameters:
     partners_pictures_directory: '%kernel.project_dir%/public/uploads/partners_pictures'
     news_pictures_directory: '%kernel.project_dir%/public/uploads/news_pictures'
 
-
 services:
     # default configuration for services in *this* file
     _defaults:
