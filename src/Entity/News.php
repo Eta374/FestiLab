@@ -39,7 +39,7 @@ class News
 
     /**
      * @ORM\ManyToOne(targetEntity=Festivals::class, inversedBy="news")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $festival;
 
