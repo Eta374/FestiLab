@@ -113,7 +113,7 @@ class Festivals
     private $Editor;
 
     /**
-     * @ORM\OneToMany(targetEntity=Pictures::class, mappedBy="festival")
+     * @ORM\OneToMany(targetEntity=Pictures::class, mappedBy="festival", cascade={"persist"})
      */
     private $pictures;
 
