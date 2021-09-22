@@ -45,18 +45,17 @@
 
 <section class="bg-light-custom">
   <div class="container bg-third-custom py-5 d-flex justify-content-center">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
       {% for news in news %}
-      <div class="col-md-6 col-sm-12 mb-4 cardArticle">
+      <div class="col-md-5 col-sm-12 mb-4 cardArticle">
         <a href="{{ path('news_show', {'id': news.id}) }}">
           <div class="bloc-img card mb-4 shadow-sm">
             <div class="bloc-img">
               <img src="{{asset('uploads/news_pictures/')}}{{news.picture}}" class="image-zoom card-img-top w-100"
                 alt="...">
             </div>
-            <div class="card-body overflow-hidden justify-content-center">
+            <div class="card-body overflow-hidden justify-content-center" style="min-height: 6rem;">
               <h5 class="card-title">{{news.name}}<br /></h5>
-              <h6 class="DatearticleHome">{{ news.createdAt ? news.createdAt|date('Y-m-d à H:i') : '' }}</h6>
             </div>
           </div>
         </a>
@@ -65,4 +64,7 @@
     </div>
   </div>
 </section>
+
+
+
 {% endblock %}
