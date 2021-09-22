@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Publics{% endblock %}
+
+{% block body %}
+    <h1>Create new Publics</h1>
+
+    {{ include('publics/_form.html.twig') }}
+
+    <a href="{{ path('publics_index') }}">back to list</a>
+{% endblock %}
