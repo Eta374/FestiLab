@@ -43,8 +43,8 @@ class RegistrationController extends AbstractController
             );
 
             $entityManager = $this->getDoctrine()->getManager();
-            $user -> setCreatedAt(new DateTime())
-            ->setModifiedAt(new DateTime());
+            $user->setCreatedAt(new DateTime())
+                ->setModifiedAt(new DateTime());
             $entityManager->persist($user);
             $entityManager->flush();
 
