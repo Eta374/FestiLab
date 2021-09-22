@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\CitiesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Places;
+use App\Entity\Departments;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CitiesRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=CitiesRepository::class)

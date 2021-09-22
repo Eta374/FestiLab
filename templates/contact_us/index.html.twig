@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactUs index{% endblock %}
+
+{% block body %}
+    <h1>ContactUs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Objet</th>
+                <th>Message</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact_u in contactuses %}
+            <tr>
+                <td>{{ contact_u.id }}</td>
+                <td>{{ contact_u.email }}</td>
+                <td>{{ contact_u.phone }}</td>
+                <td>{{ contact_u.objet }}</td>
+                <td>{{ contact_u.message }}</td>
+                <td>{{ contact_u.createdAt ? contact_u.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('contact_us_show', {'id': contact_u.id}) }}">Voir</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
