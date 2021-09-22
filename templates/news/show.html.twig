@@ -3,36 +3,31 @@
 {% block title %}News{% endblock %}
 
 {% block body %}
-    <h1>News</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ news.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ news.Name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ news.description }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ news.picture }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ news.createdAt ? news.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+<section class="bg-primary-custom">
 
-    <a href="{{ path('news_index') }}">back to list</a>
+    <div class="container bg-light-custom py-5 d-flex justify-content-center">
 
-    <a href="{{ path('news_edit', {'id': news.id}) }}">edit</a>
+        <div class="container p-5 BGarticle">
+            <img class="img-fluid align-items mb-5" src="{{ asset('uploads/news_pictures/' ~ news.picture) }}"
+                width="500"></td>
+            <h1 class="">
+                {{ news.name }}
+            </h1>
+            {{ news.description|raw }}
+            Mise à jour le {{ news.createdAt ? news.createdAt|date('Y-m-d à H:i') : '' }}<br />
+        </div>
 
-    {{ include('news/_delete_form.html.twig') }}
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
 {% endblock %}
