@@ -10,12 +10,3 @@ window.addEventListener('scroll', () => { /* récuperation de la valeur du scrol
     }
 })
 
-// ....................................... ACTIVATION DU DATEPICKER
-$(function () {
-
-    // ACTIVATION DU DATEPICKER 
-    $('.datepicker').datepicker({
-        clearBtn: true,
-        format: "dd/mm/yyyy"
-    });
-});

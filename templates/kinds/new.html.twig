@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Kinds{% endblock %}
+
+{% block body %}
+    <h1>Create new Kinds</h1>
+
+    {{ include('kinds/_form.html.twig') }}
+
+    <a href="{{ path('kinds_index') }}">back to list</a>
+{% endblock %}
