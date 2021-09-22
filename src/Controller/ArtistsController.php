@@ -35,10 +35,24 @@ class ArtistsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($artist);
-            $entityManager->flush();
 
+            // On récupère les images transmises
+            $picture = $form->get('picture')->getData();
+            $name = $form->get('name')->getData();
+            // On génère un nouveau nom de fichier
+            $fichier = $name.'.'.$picture->guessExtension();
+            
+            // On copie le fichier dans le dossier uploads
+            $picture->move(
+                $this->getParameter('artists_pictures_directory'),
+                $fichier
+            );
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $artist->setPicture($fichier);
+            $entityManager->persist($artist);
+            
+            $entityManager->flush();
             return $this->redirectToRoute('artists_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -67,6 +81,19 @@ class ArtistsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // On récupère les images transmises
+            $picture = $form->get('picture')->getData();
+            $name = $form->get('name')->getData();
+            // On génère un nouveau nom de fichier
+            $fichier = $name.'.'.$picture->guessExtension();
+            
+            // On copie le fichier dans le dossier uploads
+            $picture->move(
+                $this->getParameter('artists_pictures_directory'),
+                $fichier
+            );
+            
+            $artist->setPicture($fichier);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('artists_index', [], Response::HTTP_SEE_OTHER);
@@ -84,6 +111,7 @@ class ArtistsController extends AbstractController
     public function delete(Request $request, Artists $artist): Response
     {
         if ($this->isCsrfTokenValid('delete'.$artist->getId(), $request->request->get('_token'))) {
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($artist);
             $entityManager->flush();
