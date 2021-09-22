@@ -1,0 +1,45 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Villes{% endblock %}
+
+{% block body %}
+    <h1>Villes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                {# <th>NameUppercase</th>
+                <th>NameSimple</th> #}
+                <th>Nom</th>
+                <th>Code Postal</th>
+                {# <th>LongitudeDeg</th>
+                <th>LatitudeDeg</th> #}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for city in cities %}
+            <tr>
+                <td>{{ city.id }}</td>
+                {# <td>{{ city.nameUppercase }}</td>
+                <td>{{ city.nameSimple }}</td> #}
+                <td>{{ city.nameReal }}</td>
+                <td>{{ city.zip }}</td>
+                {# <td>{{ city.longitudeDeg }}</td>
+                <td>{{ city.latitudeDeg }}</td> #}
+                <td>
+                    <a href="{{ path('cities_show', {'id': city.id}) }}"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('cities_edit', {'id': city.id}) }}"><i class="far fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cities_new') }}"><i class="far fa-plus-square"></i></a>
+{% endblock %}

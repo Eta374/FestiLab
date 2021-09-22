@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Modifier Lieu{% endblock %}
+
+{% block body %}
+    <h1>Modifier Lieu</h1>
+
+    {{ include('places/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('places_index') }}"><i class="fas fa-undo-alt"></i></a>
+
+    {{ include('places/_delete_form.html.twig') }}
+{% endblock %}
