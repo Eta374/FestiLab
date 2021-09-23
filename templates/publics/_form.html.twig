@@ -1,4 +1,11 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+<div class="row">
+    <div class="col-lg-4">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Types</span>
+            {{ form_widget(form.types) }}
+        </div>
+    </div>
+</div>
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
