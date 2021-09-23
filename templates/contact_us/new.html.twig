@@ -1,19 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New ContactUs{% endblock %}
+{% block title %}Contactez-nous
+{% endblock %}
 
 {% block body %}
-<section class="bg-primary-custom">
-    <div class="container bg-light-custom py-5 d-flex justify-content-center">
-    <h1>Contactez-nous</h1>
-    {{ include('contact_us/_form.html.twig') }}
-    </div>
-</section>
-   
+	<section class="bg-primary-custom" style="height: 100vh">
+		<div class="container bg-light-custom py-5" style="height: 100vh">
+			<h1 class="contact">Contactez-nous</h1>
+			<div class="row">
+				{{ include('contact_us/_form.html.twig') }}
+			</div>
+		</div>
+	</section>
 
 
-
-
-
-  
 {% endblock %}

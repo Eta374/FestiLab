@@ -1,42 +1,47 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}ContactUs{% endblock %}
+{% block title %}Contact
+{% endblock %}
 
 {% block body %}
-    <h1>ContactUs</h1>
+	<h1>Contact</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ contact_u.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ contact_u.email }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ contact_u.phone }}</td>
-            </tr>
-            <tr>
-                <th>Objet</th>
-                <td>{{ contact_u.objet }}</td>
-            </tr>
-            <tr>
-                <th>Message</th>
-                <td>{{ contact_u.message }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ contact_u.createdAt ? contact_u.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ contact_u.id }}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ contact_u.email }}</td>
+			</tr>
+			<tr>
+				<th>Téléphone</th>
+				<td>{{ contact_u.phone }}</td>
+			</tr>
+			<tr>
+				<th>Sujet</th>
+				<td>{{ contact_u.objet }}</td>
+			</tr>
+			<tr>
+				<th>Message</th>
+				<td>{{ contact_u.message }}</td>
+			</tr>
+			<tr>
+				<th>Date</th>
+				<td>{{ contact_u.createdAt ? contact_u.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+	
+			<a href="{{ path('contact_us_index') }}">
+				<i class="me-3 fas fa-undo-alt"></i>
+			</a>
+		
 
-    <a href="{{ path('contact_us_index') }}">back to list</a>
-
-    
-
-    {{ include('contact_us/_delete_form.html.twig') }}
+        
+		{{ include('contact_us/_delete_form.html.twig') }}
+        
+	
 {% endblock %}
