@@ -22,7 +22,7 @@ class ArtistsType extends AbstractType
                 'mapped' => false,
                 // 'required' => false,
             ])
-            ->add('festival')
+            //->add('festival')
         ;
     }
 

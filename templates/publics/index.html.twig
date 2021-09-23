@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Publics index{% endblock %}
 
@@ -19,8 +19,8 @@
                 <td>{{ public.id }}</td>
                 <td>{{ public.types }}</td>
                 <td>
-                    <a href="{{ path('publics_show', {'id': public.id}) }}">show</a>
-                    <a href="{{ path('publics_edit', {'id': public.id}) }}">edit</a>
+                    <a href="{{ path('publics_show', {'id': public.id}) }}"><i class="me-3 far fa-eye"></i></a>
+                    <a href="{{ path('publics_edit', {'id': public.id}) }}"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('publics_new') }}">Create new</a>
+    <a href="{{ path('publics_new') }}"><i class="far fa-plus-square"></i></a>
 {% endblock %}

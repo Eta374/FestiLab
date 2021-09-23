@@ -15,7 +15,7 @@
   <script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
 
   <script src="{{ asset('js/app.js') }}"></script>
-  
+
   <!--ICONS-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
     integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
@@ -61,13 +61,17 @@
           {% endif %}
         </ul>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <form class="d-flex">
+
+          <!-- <form class="d-flex">
+
             <div class="input-group mb-1">
               <input type="text" class="form-control" placeholder="Festivals, Artistes..." aria-label="Rechercher"
                 aria-describedby="button-addon2">
               <button class="btn btn-outline-secondary" type="button" id="button-addon2">Rechercher</button>
             </div>
-          </form>
+
+          </form> -->
+
           {% if app.user %}
           <li class="nav-item personne"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"
               class="bi bi-person-fill" viewBox="0 0 16 16">
