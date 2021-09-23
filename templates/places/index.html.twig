@@ -8,19 +8,21 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom</th>
+                {# <th>Id</th> #}
+                <th>Ville</th>
+                <th>Lieu</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for place in places %}
             <tr>
-                <td>{{ place.id }}</td>
+                {# <td>{{ place.id }}</td> #}
+                <td>{{ place.citie.nameReal }}</td>
                 <td>{{ place.name }}</td>
                 <td>
                     <a href="{{ path('places_show', {'id': place.id}) }}"><i class="far fa-eye"></i></a>
-                    <a href="{{ path('places_edit', {'id': place.id}) }}"><i class="far fa-edit"></i></a>
+                   <a href="{{ path('places_edit', {'id': place.id}) }}"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}

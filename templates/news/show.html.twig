@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+
+<section class="bg-primary-custom">
+
+    <div class="container bg-light-custom py-5 d-flex justify-content-center">
+
+        <div class="container p-5 BGarticle">
+            <img class="img-fluid align-items mb-5" src="{{ asset('uploads/news_pictures/' ~ news.picture) }}"
+                width="500"></td>
+            <h1 class="">
+                {{ news.name }}
+            </h1>
+            {{ news.description|raw }}
+            Mise à jour le {{ news.createdAt ? news.createdAt|date('Y-m-d à H:i') : '' }}<br />
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+{% endblock %}

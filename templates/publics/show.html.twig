@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publics{% endblock %}
+
+{% block body %}
+    <h1>Publics</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ public.id }}</td>
+            </tr>
+            <tr>
+                <th>Types</th>
+                <td>{{ public.types }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('publics_index') }}">back to list</a>
+
+    <a href="{{ path('publics_edit', {'id': public.id}) }}">edit</a>
+
+    {{ include('publics/_delete_form.html.twig') }}
+{% endblock %}
