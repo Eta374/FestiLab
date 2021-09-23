@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Artists{% endblock %}
 
@@ -22,6 +22,10 @@
             <tr>
                 <th>SocialLink</th>
                 <td>{{ artist.socialLink }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td><img class="img-miniature" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt="{{ artist.picture }}"></td>
             </tr>
         </tbody>
     </table>

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Patners{% endblock %}
+
+{% block body %}
+    <h1>Edit Patners</h1>
+
+    {{ include('patners/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('patners_index') }}">back to list</a>
+
+    {{ include('patners/_delete_form.html.twig') }}
+{% endblock %}

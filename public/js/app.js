@@ -9,3 +9,4 @@ window.addEventListener('scroll', () => { /* récuperation de la valeur du scrol
         nav.classList.remove( "bg-glass");
     }
 })
+
