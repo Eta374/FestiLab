@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Artists{% endblock %}
 
@@ -25,14 +25,14 @@
             </tr>
             <tr>
                 <th>Picture</th>
-                <td>{{ artist.picture }}</td>
+                <td><img class="img-miniature" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt="{{ artist.picture }}"></td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('artists_index') }}">back to list</a>
+    <a href="{{ path('artists_index') }}"><i class="fas fa-undo-alt"></i></a>
 
-    <a href="{{ path('artists_edit', {'id': artist.id}) }}">edit</a>
+    <a href="{{ path('artists_edit', {'id': artist.id}) }}"><i class="far fa-edit"></i></a>
 
     {{ include('artists/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Artists index{% endblock %}
 
@@ -23,10 +23,14 @@
                 <td>{{ artist.name }}</td>
                 <td>{{ artist.descripton }}</td>
                 <td>{{ artist.socialLink }}</td>
-                <td><img class="w-75" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt=""></td>
+
                 <td>
-                    <a href="{{ path('artists_show', {'id': artist.id}) }}">show</a>
-                    <a href="{{ path('artists_edit', {'id': artist.id}) }}">edit</a>
+                    <img class="img-miniature" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt="{{ artist.picture }}">
+                </td>
+
+                <td>
+                    <a href="{{ path('artists_show', {'id': artist.id}) }}"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('artists_edit', {'id': artist.id}) }}"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('artists_new') }}">Create new</a>
+    <a href="{{ path('artists_new') }}"><i class="far fa-plus-square"></i></a>
 {% endblock %}
