@@ -14,6 +14,10 @@
   height: 100vh;
 }
 
+html {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 /*
 *
 * ==========================================
@@ -25,6 +29,16 @@
 
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 150%;
+}
+
+.navbar a {
+  color: #f1f1f1;
+}
+
+.navbar a:hover {
+  color: #7ecbb6;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 /*
@@ -59,6 +73,11 @@
 .card-body {
   background-color: #f1f1f1;
 
+}
+
+a {
+  color: #242833;
+  text-decoration: none;
 }
 
 .img-miniature {
