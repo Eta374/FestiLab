@@ -1,14 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Kinds index{% endblock %}
+{% block title %}Genres{% endblock %}
 
 {% block body %}
-    <h1>Kinds index</h1>
+    <h1>Genres</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <!-- <th>Id</th> -->
                 <th>Name</th>
                 <th>actions</th>
             </tr>
@@ -16,11 +16,11 @@
         <tbody>
         {% for kind in kinds %}
             <tr>
-                <td>{{ kind.id }}</td>
+                {# <td>{{ kind.id }}</td> #}
                 <td>{{ kind.name }}</td>
                 <td>
-                    <a href="{{ path('kinds_show', {'id': kind.id}) }}">show</a>
-                    <a href="{{ path('kinds_edit', {'id': kind.id}) }}">edit</a>
+                    <a href="{{ path('kinds_show', {'id': kind.id}) }}"><i class="me-3 far fa-eye"></i></a>
+                    <a href="{{ path('kinds_edit', {'id': kind.id}) }}"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('kinds_new') }}">Create new</a>
+    <a href="{{ path('kinds_new') }}"><i class="far fa-plus-square"></i></a>
 {% endblock %}
