@@ -1,7 +1,35 @@
 {{ form_start(form) }}
-    {{ form_row(form.email) }}
-    <a href="{{ path('app_forgot_password_request') }}">reset password</a>
-    {{ form_row(form.pseudo) }}
-    {{ form_row(form.roles) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Pseudo</span>
+            {{ form_widget(form.pseudo) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+            {{ form_widget(form.email) }}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Role</span>
+            {{ form_widget(form.roles) }}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2">
+        <a class="text-decoration-none" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+        <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+    </div>
+</div>
+
 {{ form_end(form) }}

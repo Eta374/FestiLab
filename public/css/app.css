@@ -22,7 +22,6 @@
 *
 */
 .navbar {
-
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 150%;
 }
@@ -58,7 +57,6 @@
 
 .card-body {
   background-color: #f1f1f1;
-
 }
 
 .img-miniature {
@@ -66,4 +64,3 @@
   width: 100px;
 }
 /*# sourceMappingURL=app.css.map */
-
