@@ -18,6 +18,7 @@ class ContactUsController extends AbstractController
 {
     /**
      * @Route("/", name="contact_us_index", methods={"GET"})
+     * isGranted("ROLE_ADMIN")
      */
     public function index(ContactUsRepository $contactUsRepository): Response
     {
@@ -52,6 +53,7 @@ class ContactUsController extends AbstractController
 
     /**
      * @Route("/{id}", name="contact_us_show", methods={"GET"})
+     * isGranted("ROLE_ADMIN")
      */
     public function show(ContactUs $contactU): Response
     {
@@ -60,28 +62,11 @@ class ContactUsController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="contact_us_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, ContactUs $contactU): Response
-    {
-        $form = $this->createForm(ContactUsType::class, $contactU);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('contact_us_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('contact_us/edit.html.twig', [
-            'contact_u' => $contactU,
-            'form' => $form,
-        ]);
-    }
+  
 
     /**
      * @Route("/{id}", name="contact_us_delete", methods={"POST"})
+     * isGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, ContactUs $contactU): Response
     {

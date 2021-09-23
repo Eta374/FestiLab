@@ -1,32 +1,32 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}News index{% endblock %}
+{% block title %}News{% endblock %}
 
 {% block body %}
-    <h1>News index</h1>
+    <h1>News</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                {# <th>Id</th> #}
+                <th>Nom</th>
                 <th>Description</th>
-                <th>Picture</th>
-                <th>CreatedAt</th>
+                {# <th>Images</th> #}
+                {# <th>CreatedAt</th> #}
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for news in news %}
             <tr>
-                <td>{{ news.id }}</td>
+                {# <td>{{ news.id }}</td> #}
                 <td>{{ news.Name }}</td>
                 <td>{{ news.description|raw}}</td>
-                <td>{{ news.picture }}</td>
-                <td>{{ news.createdAt ? news.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ news.picture }}</td> #}
+                {# <td>{{ news.createdAt ? news.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('news_show', {'id': news.id}) }}">show</a>
-                    <a href="{{ path('news_edit', {'id': news.id}) }}">edit</a>
+                    <a href="{{ path('news_show', {'id': news.id}) }}"><i class="me-3 far fa-eye"></i></a>
+                    <a href="{{ path('news_edit', {'id': news.id}) }}"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('news_new') }}">Create new</a>
+    <a href="{{ path('news_new') }}"><i class="far fa-plus-square"></i></a>
 {% endblock %}

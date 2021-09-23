@@ -96,4 +96,8 @@ footer .copyright a {
 footer .copyright a:hover {
   color: #E97171;
   transition: 1s;
+}
+
+.img-miniature {
+  height: 100px;
 }/*# sourceMappingURL=appAdmin.css.map */
