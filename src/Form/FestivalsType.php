@@ -2,19 +2,20 @@
 
 namespace App\Form;
 
-use App\Entity\Artists;
-use App\Entity\Festivals;
 use App\Entity\Kinds;
 use App\Entity\Places;
+use App\Entity\Artists;
 use App\Entity\Publics;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Festivals;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class FestivalsType extends AbstractType
 {
@@ -22,7 +23,7 @@ class FestivalsType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('description')
+            ->add('description', CKEditorType::class)
             ->add('price')
             ->add('duration')
             ->add('websiteLink')
