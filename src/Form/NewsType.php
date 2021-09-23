@@ -15,7 +15,7 @@ class NewsType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description')
+            ->add('description', CKEditorType::class)
             ->add('picture', FileType::class, [
                 // 'label' => false,
                 // 'multiple' => false,
