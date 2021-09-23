@@ -57,5 +57,11 @@
 
 .card-body {
   background-color: #f1f1f1;
+
+}
+
+.img-miniature {
+  height: 100px;
+  width: 100px;
 }
 /*# sourceMappingURL=app.css.map */

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Festivals{% endblock %}
+
+{% block body %}
+    <h1>Festivals</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ festival.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ festival.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ festival.description }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ festival.price }}</td>
+            </tr>
+            <tr>
+                <th>Duration</th>
+                <td>{{ festival.duration }}</td>
+            </tr>
+            <tr>
+                <th>WebsiteLink</th>
+                <td>{{ festival.websiteLink }}</td>
+            </tr>
+            <tr>
+                <th>TicketOfficeLink</th>
+                <td>{{ festival.ticketOfficeLink }}</td>
+            </tr>
+            <tr>
+                <th>SocialLink</th>
+                <td>{{ festival.socialLink }}</td>
+            </tr>
+            <tr>
+                <th>Tdg</th>
+                <td>{{ festival.tdg ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DateStart</th>
+                <td>{{ festival.dateStart ? festival.dateStart|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateEnd</th>
+                <td>{{ festival.dateEnd ? festival.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ festival.createdAt ? festival.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ModifiedAt</th>
+                <td>{{ festival.modifiedAt ? festival.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('festivals_index') }}">back to list</a>
+
+    <a href="{{ path('festivals_edit', {'id': festival.id}) }}">edit</a>
+
+    {{ include('festivals/_delete_form.html.twig') }}
+{% endblock %}
