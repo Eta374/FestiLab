@@ -8,6 +8,7 @@ use App\Form\FestivalsType;
 use App\Repository\FestivalsRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -49,13 +50,15 @@ class FestivalsController extends AbstractController
                 
                 // On copie le fichier dans le dossier uploads
                 $image->move(
-                    $this->getParameter('festivals_pictures_directory'),
+                    $this->getParameter('festivals_pictures_directory').'/'.$form->get('title')->getData(),
                     $fichier
                 );
                 
                 // On crée l'image dans la base de données
                 $img = new Pictures();
-                $img->setName($fichier);
+                $img->setName($fichier)
+                    ->setDescription($form->get('description_images')->getData())
+                    ->setLink($fichier);
                 $festival->addPicture($img);
             }
 
@@ -95,6 +98,27 @@ class FestivalsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // On récupère les images transmises
+            $images = $form->get('images')->getData();
+            
+            // On boucle sur les images
+            foreach($images as $image){
+                // On génère un nouveau nom de fichier
+                $fichier = md5(uniqid()).'.'.$image->guessExtension();
+                
+                // On copie le fichier dans le dossier uploads
+                $image->move(
+                    $this->getParameter('festivals_pictures_directory').'/'.$form->get('title')->getData(),
+                    $fichier
+                );
+                
+                // On crée l'image dans la base de données
+                $img = new Pictures();
+                $img->setName($fichier)
+                    ->setDescription($form->get('description_images')->getData())
+                    ->setLink($fichier);
+                $festival->addPicture($img);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('festivals_index', [], Response::HTTP_SEE_OTHER);
@@ -119,29 +143,4 @@ class FestivalsController extends AbstractController
 
         return $this->redirectToRoute('festivals_index', [], Response::HTTP_SEE_OTHER);
     }
-
-    /**
-     * @Route("/supprime/image/{id}", name="festivals_delete_image", methods={"DELETE"})
-     */
-    // public function deleteImage(Pictures $pictures, Request $request){
-    //     $data = json_decode($request->getContent(), true);
-
-    //     // On vérifie si le token est valide
-    //     if($this->isCsrfTokenValid('delete'.$pictures->getId(), $data['_token'])){
-    //         // On récupère le nom de l'image
-    //         $nom = $pictures->getName();
-    //         // On supprime le fichier
-    //         unlink($this->getParameter('festivals_pictures_directory').'/'.$nom);
-
-    //         // On supprime l'entrée de la base
-    //         $em = $this->getDoctrine()->getManager();
-    //         $em->remove($pictures);
-    //         $em->flush();
-
-    //         // On répond en json
-    //         return new JsonResponse(['success' => 1]);
-    //     }else{
-    //         return new JsonResponse(['error' => 'Token Invalide'], 400);
-    //     }
-    // }
 }
