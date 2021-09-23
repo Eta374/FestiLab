@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}New Patners{% endblock %}
+{% block title %}Nouveau Partenaire{% endblock %}
 
 {% block body %}
-    <h1>Create new Patners</h1>
+    <h1>Nouveau Partenaire</h1>
 
     {{ include('patners/_form.html.twig') }}
 
-    <a href="{{ path('patners_index') }}">back to list</a>
+
 {% endblock %}
