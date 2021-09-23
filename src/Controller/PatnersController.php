@@ -43,7 +43,7 @@ class PatnersController extends AbstractController
             
             // On copie le fichier dans le dossier uploads
             $picture->move(
-                $this->getParameter('artists_pictures_directory'),
+                $this->getParameter('partners_pictures_directory'),
                 $fichier
             );
             $entityManager = $this->getDoctrine()->getManager();
@@ -87,7 +87,7 @@ class PatnersController extends AbstractController
             
             // On copie le fichier dans le dossier uploads
             $picture->move(
-                $this->getParameter('artists_pictures_directory'),
+                $this->getParameter('partners_pictures_directory'),
                 $fichier
             );
             $patner->setPicture($fichier);

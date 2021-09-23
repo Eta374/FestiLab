@@ -4,14 +4,62 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-lg-3 p-3">
-            <h5 class="text-center">Liste des artistes</h5>
-            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('artists_index') }}">
+        <div class="col-lg-6 p-3">
+            <h5 class="text-center">Liste des 3 derniers messages ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('contact_us_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for contactUs in contactUs_filter %}
+                            <tr>
+                                <td>{{contactUs.email}}</td>
+                                <td>{{contactUs.objet}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <div class="col-lg-6 p-3">
+            <h5 class="text-center">Liste des 3 dernières news ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for new in news_filter %}
+                            <tr>
+                                <td>{{new.name}}</td>
+                                <td>{{news.description}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier festivales ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for festival in festivals_filter %}
+                            <tr>
+                                <td>{{festival.title}}</td>
+                                <td>{{festival.description}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier artistes ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
                 <table class="table table-sm">
                     <tbody>
                         {% for artist in artists_filter %}
                             <tr>
-                                <td><img class="img-miniature rounded-circle shadow" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt=""></td>
+                                <td><img class="img-miniature" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt="{{ artist.picture }}"></td>
                                 <td>{{artist.name}}</td>
                             </tr>
                         {% endfor %}
@@ -20,21 +68,121 @@
                 </table>
             </a>
         </div>
-        <div class="col-lg-4">
-            <h5 class="text-center">Liste des artistes</h5>
-            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('artists_index') }}">
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier artistes ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
                 <table class="table table-sm">
                     <tbody>
-                        {% for artist in artists_filter %}
+                        {% for patner in partner_filter %}
                             <tr>
-                                <td><img class="img-miniature rounded-circle shadow" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt=""></td>
-                                <td>{{artist.name}}</td>
+                                <td><img class="img-miniature" src="{{ asset('uploads/partners_pictures/'~patner.picture) }}" alt="{{ patner.picture }}"></td>
+                                <td>{{patner.name}}</td>
                             </tr>
                         {% endfor %}
                       </tr>
                     </tbody>
                 </table>
             </a>
+        </div>
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier utilisateurs ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for user in users_filter %}
+                            <tr>
+                                <td>{{user.email}}</td>
+                                <td>{{user.roles ? user.roles|json_encode : ''}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier genres ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for kind in kinds_filter %}
+                            <tr>
+                                <td>{{kind.name}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier publique ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for public in publics_filter %}
+                            <tr>
+                                <td>{{public.types}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier places ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for place in places_filter %}
+                            <tr>
+                                <td>{{place.name}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier villes ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for city in citis_filter %}
+                            <tr>
+                                <td>{{city.nameUppercase}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <div class="col-lg-4 p-3">
+            <h5 class="text-center">Liste des 3 dernier département ajoutés</h5>
+            <a class="table-responsive" title="Cliquer ici pour vous la liste complète" href="{{ path('news_index') }}">
+                <table class="table table-sm">
+                    <tbody>
+                        {% for departement in departement_filter %}
+                            <tr>
+                                <td>{{departement.nameUppercase}}</td>
+                            </tr>
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+    </div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for key, departement in departement_filter %}
+                <div class="carousel-item {% if key == 0 %}active{% endif %}">
+                    <li>{{ key }}: {{departement.nameUppercase}}</li>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
