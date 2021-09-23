@@ -1,6 +1,8 @@
 {% if is_granted("ROLE_ADMIN") %}
+<div class="col-lg-2">
 <form method="post" action="{{ path('places_delete', {'id': place.id}) }}" onsubmit="return confirm('Etes vous sure de vouloir effacer ce Lieux ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ place.id) }}">
     <button class="btn">Supprimer</button>
 </form>
+</div>
 {% endif %}
