@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'news' => $newsRepository->findAll(),
-           #'newsFilter' => $newsRepository->findBy([],[3]) #}
+            'newsFilter' => $newsRepository->findBy([],['id'=>'DESC'],3)
         ]);
     }
 }
