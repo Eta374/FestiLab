@@ -1,4 +1,6 @@
+<div class="col-lg-2">
 <form method="post" action="{{ path('departments_delete', {'id': department.id}) }}" onsubmit="return confirm('Etes vous sure de vouloir effacer ce département ?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ department.id) }}">
     <button class="btn">Supprimer</button>
 </form>
+</div>
