@@ -1,41 +1,59 @@
 {{ form_start(form) }}
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+<div class="row">
+	<div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Nom Majuscule</span>
+			{{ form_widget(form.nameUppercase) }}
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Nom Simple</span>
+			{{ form_widget(form.nameSimple) }}
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Nom Réel</span>
+			{{ form_widget(form.nameReal) }}
+		</div>
+	</div>
 </div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Nom Majuscule</span>
-  {{ form_widget(form.nameUppercase) }}
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Code Postal</span>
+			{{ form_widget(form.zip) }}
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Département</span>
+			{{ form_widget(form.department) }}
+		</div>
+	</div>
 </div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Nom Simple</span>
-  {{ form_widget(form.nameSimple) }}
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Nom Réel</span>
-  {{ form_widget(form.nameReal) }}
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Code Postal</span>
-  {{ form_widget(form.zip) }}
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Longitude deg</span>
-  {{ form_widget(form.longitudeDeg) }}
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Latitude deg</span>
-  {{ form_widget(form.latitudeDeg) }}
-</div>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">Département</span>
-  {{ form_widget(form.department) }}
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Longitude deg</span>
+			{{ form_widget(form.longitudeDeg) }}
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Latitude deg</span>
+			{{ form_widget(form.latitudeDeg) }}
+		</div>
+	</div>
 </div>
 
+<div class="row">
+<div class="col-lg-2">
+<a href="{{ path('cities_index') }}">
+	<i class="me-3 fas fa-undo-alt"></i>
+</a>
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+</div>
 
-
-
-  
-    <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
-    {# <i class="far fa-save"></i> #}
 {{ form_end(form) }}

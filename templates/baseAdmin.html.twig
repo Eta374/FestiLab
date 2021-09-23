@@ -23,7 +23,7 @@
 	</head>
 	<body>
 		<header>
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark-custom">
+			<nav class="navbar shadow navbar-expand-lg navbar-dark bg-dark-custom">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="{{ path('home') }}"><img class="w-25 img-fluid" src="{{ asset('img/Festilab.png')}}" alt="FestiLab"></a>
 					{# <p class="pseudo">Bienvenue {{ app.user.pseudo }}</p> #}
@@ -47,29 +47,31 @@
 		</header>
 		<section class="d-flex flex-row">
 
-			<nav class="nav gche flex-column bg-third-custom">
+			<nav class="nav shadow gche flex-column bg-third-custom">
 				<a class="nav-link navbarAd" href="{{ path('user_index') }}">Dashboard</a>
-				<a class="nav-link navbarAd" {# href="{{ path('festivals_index') }}" #}>Festival</a>
+				<a class="nav-link navbarAd" href="{{ path('festivals_index') }}">Festival</a>
 				<a class="nav-link navbarAd" href="{{ path('artists_index') }}">Artiste</a>
 				<a class="nav-link navbarAd" href="{{ path('places_index') }}">Lieu</a>
 				{% if is_granted("ROLE_ADMIN") %}
 					<a class="nav-link navbarAd" href="{{ path('cities_index') }}">Ville</a>
 					<a class="nav-link navbarAd" href="{{ path('departments_index') }}">Département</a>
 				{% endif %}
-				<a class="nav-link navbarAd" {# href="{{ path('kinds_index') }}" #}>Genres</a>
+				<a class="nav-link navbarAd" href="{{ path('kinds_index') }}">Genres</a>
 				{% if is_granted("ROLE_ADMIN") %}
 					<a class="nav-link navbarAd" href="{{ path('publics_index') }}">Publique</a>
 				{% endif %}
-				<a class="nav-link navbarAd" {# href="{{ path('news_index') }}" #}>New</a>
-				<a class="nav-link navbarAd" {# href="{{ path('patners_index') }}" #}>Partenaires</a>
+				<a class="nav-link navbarAd" href="{{ path('news_index') }}">New</a>
+				<a class="nav-link navbarAd" href="{{ path('patners_index') }}">Partenaires</a>
 				{% if is_granted("ROLE_ADMIN") %}
 					<a class="nav-link navbarAd" href="{{ path('user_index') }}">Utilisateur</a>
-					<a class="nav-link navbarAd" href="{{ path('contactUs_index') }}">Contact</a>
+					<a class="nav-link navbarAd" href="{{ path('contact_us_index') }}">Contact</a>
 				{% endif %}
 			</nav>
 
-			<article>
+			<article class="container">
+				<div class="bg-light-custom card1">
 				{% block body %}{% endblock %}
+				</div>
 			</article>
 		</section>
 		<footer class="fixed-bottom mt-5 bg-dark-custom">

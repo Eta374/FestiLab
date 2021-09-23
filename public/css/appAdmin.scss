@@ -26,6 +26,7 @@ $lightColor: #f1f1f1;
 $primaryColor: #E97171;
 $secondaryColor: #FCEA10;
 $thirdColor: #7ecbb6;
+$thirdColorl: rgba(126, 203, 182, 0.4);
 
 // GLOBAL
 // ================================================================
@@ -36,7 +37,9 @@ body{
 
 h1{
     font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    color: $thirdColor;
+    text-align: center;
 }
 
 
@@ -44,6 +47,8 @@ h1{
 // ================================================================
 
 nav {
+    
+
     i {
         color: $thirdColor;
         font-size: 1.2rem;
@@ -57,10 +62,12 @@ nav {
 }
 
 
+
 // SECTION
 // ================================================================
 
 section {
+    background-color: $thirdColorl;
     .gche {
         min-height: 100vh;
         width: 140px;
@@ -85,13 +92,13 @@ article {
     padding-right: 20px;
 
         i {
-            color: $thirdColor;
-            font-size: 1.2rem;
+            color: $darkColor;
+            font-size: 1.1rem;
         }
 
         i:hover {
-            color: $primaryColor;
-            font-size: 1.2rem;
+            color: $thirdColor;
+            font-size: 1.1rem;
             transition: 1s;
         }
         .btn {
@@ -107,6 +114,13 @@ article {
             color: $darkColor;
             background-color: $primaryColor;
             border-color: $primaryColor;
+        }
+        .card1{
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            box-shadow: 2.5px 2.5px 10px $thirdColor;
         }
 }
 

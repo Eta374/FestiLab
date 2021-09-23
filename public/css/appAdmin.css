@@ -20,7 +20,9 @@ body {
 
 h1 {
   font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  color: #7ecbb6;
+  text-align: center;
 }
 
 nav i {
@@ -33,6 +35,9 @@ nav i:hover {
   transition: 1s;
 }
 
+section {
+  background-color: rgba(126, 203, 182, 0.4);
+}
 section .gche {
   min-height: 100vh;
   width: 140px;
@@ -50,12 +55,12 @@ article {
   padding-right: 20px;
 }
 article i {
-  color: #7ecbb6;
-  font-size: 1.2rem;
+  color: #242833;
+  font-size: 1.1rem;
 }
 article i:hover {
-  color: #E97171;
-  font-size: 1.2rem;
+  color: #7ecbb6;
+  font-size: 1.1rem;
   transition: 1s;
 }
 article .btn {
@@ -70,6 +75,13 @@ article .btn:hover {
   color: #242833;
   background-color: #E97171;
   border-color: #E97171;
+}
+article .card1 {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 50px;
+  box-shadow: 2.5px 2.5px 10px #7ecbb6;
 }
 
 footer .copyright {
