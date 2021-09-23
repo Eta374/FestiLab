@@ -1,4 +1,26 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+
+<div class="row">
+	<div class="col-lg-6">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Lieu</span>
+			{{ form_widget(form.name) }}
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Ville</span>
+			{{ form_widget(form.citie) }}
+		</div>
+	</div>
+</div>
+
+    {# {{ form_widget(form) }} #}
+    <div class="row">
+<div class="col-lg-2">
+<a href="{{ path('places_index') }}">
+	<i class="me-3 fas fa-undo-alt"></i>
+</a>
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+</div>
 {{ form_end(form) }}

@@ -14,8 +14,8 @@
             <h1 class="">
                 {{ news.name }}
             </h1>
-            {{ news.description|raw }}
-            Mise à jour le {{ news.createdAt ? news.createdAt|date('Y-m-d à H:i') : '' }}<br />
+            {{ news.description|raw }}</br>
+            Mise à jour le {{ news.createdAt ? news.createdAt|date('d-m-Y à H:i') : '' }}<br />
         </div>
 
     </div>

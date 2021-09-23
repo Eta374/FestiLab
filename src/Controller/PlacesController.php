@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/places")
+ * isGranted("ROLE_EDITOR")
  */
 class PlacesController extends AbstractController
 {
