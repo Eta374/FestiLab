@@ -1,14 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Patners index{% endblock %}
+{% block title %}Partenaires{% endblock %}
 
 {% block body %}
-    <h1>Patners index</h1>
+    <h1>Partenaires</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Picture</th>
                 <th>WebsiteLink</th>
@@ -18,13 +17,14 @@
         <tbody>
         {% for patner in patners %}
             <tr>
-                <td>{{ patner.id }}</td>
                 <td>{{ patner.name }}</td>
-                <td><img class="img-miniature" src="{{ asset('uploads/artists_pictures/'~patner.picture) }}" alt="{{ patner.picture }}">{{ patner.picture }}</td>
+                <td><img class="img-min" src="{{ asset('uploads/artists_pictures/'~patner.picture) }}" alt="{{ patner.picture }}"></td>
                 <td>{{ patner.websiteLink }}</td>
                 <td>
-                    <a href="{{ path('patners_show', {'id': patner.id}) }}">show</a>
-                    <a href="{{ path('patners_edit', {'id': patner.id}) }}">edit</a>
+                    <a href="{{ path('patners_show', {'id': patner.id}) }}"><i class="me-3 far fa-eye"></i></a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('patners_edit', {'id': patner.id}) }}"><i class="far fa-edit"></i></a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('patners_new') }}">Create new</a>
+    <a href="{{ path('patners_new') }}"><i class="far fa-plus-square"></i></a>
 {% endblock %}
