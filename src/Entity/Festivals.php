@@ -114,6 +114,7 @@ class Festivals
 
     /**
      * @ORM\OneToMany(targetEntity=Pictures::class, mappedBy="festival", cascade={"persist"})
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $pictures;
 

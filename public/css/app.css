@@ -27,6 +27,7 @@ html {
 */
 .navbar {
   font-family: "Roboto Condensed", sans-serif;
+
   font-size: 150%;
 }
 .navbar a {
@@ -113,3 +114,4 @@ footer .copyright a:hover {
   color: #7ecbb6;
   transition: 1s;
 }/*# sourceMappingURL=app.css.map */
+

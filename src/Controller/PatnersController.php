@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/patners")
@@ -17,6 +18,7 @@ class PatnersController extends AbstractController
 {
     /**
      * @Route("/", name="patners_index", methods={"GET"})
+     * @isGranted("ROLE_EDITOR")
      */
     public function index(PatnersRepository $patnersRepository): Response
     {
@@ -27,6 +29,7 @@ class PatnersController extends AbstractController
 
     /**
      * @Route("/new", name="patners_new", methods={"GET","POST"})
+     * @isGranted("ROLE_EDITOR")
      */
     public function new(Request $request): Response
     {
@@ -43,7 +46,7 @@ class PatnersController extends AbstractController
             
             // On copie le fichier dans le dossier uploads
             $picture->move(
-                $this->getParameter('artists_pictures_directory'),
+                $this->getParameter('partners_pictures_directory'),
                 $fichier
             );
             $entityManager = $this->getDoctrine()->getManager();
@@ -72,6 +75,7 @@ class PatnersController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="patners_edit", methods={"GET","POST"})
+     * @isGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Patners $patner): Response
     {
@@ -87,7 +91,7 @@ class PatnersController extends AbstractController
             
             // On copie le fichier dans le dossier uploads
             $picture->move(
-                $this->getParameter('artists_pictures_directory'),
+                $this->getParameter('partners_pictures_directory'),
                 $fichier
             );
             $patner->setPicture($fichier);
@@ -104,6 +108,7 @@ class PatnersController extends AbstractController
 
     /**
      * @Route("/{id}", name="patners_delete", methods={"POST"})
+     * @isGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Patners $patner): Response
     {

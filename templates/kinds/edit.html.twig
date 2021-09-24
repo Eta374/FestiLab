@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Edit Kinds{% endblock %}
+{% block title %}Modifier Genre{% endblock %}
 
 {% block body %}
-    <h1>Edit Kinds</h1>
+<h1>Modifier Genre</h1>
 
-    {{ include('kinds/_form.html.twig', {'button_label': 'Update'}) }}
+{{ include('kinds/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a href="{{ path('kinds_index') }}">back to list</a>
-
-    {{ include('kinds/_delete_form.html.twig') }}
+{% if is_granted('ROLE_ADMIN') %}
+{{ include('kinds/_delete_form.html.twig') }}
+{% endif %}
 {% endblock %}

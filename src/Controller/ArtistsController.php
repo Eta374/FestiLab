@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/artists")
@@ -17,6 +18,7 @@ class ArtistsController extends AbstractController
 {
     /**
      * @Route("/", name="artists_index", methods={"GET"})
+     * @isGranted("ROLE_EDITOR")
      */
     public function index(ArtistsRepository $artistsRepository): Response
     {
@@ -27,6 +29,7 @@ class ArtistsController extends AbstractController
 
     /**
      * @Route("/new", name="artists_new", methods={"GET","POST"})
+     * @isGranted("ROLE_EDITOR")
      */
     public function new(Request $request): Response
     {
@@ -74,6 +77,7 @@ class ArtistsController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="artists_edit", methods={"GET","POST"})
+     * @isGranted("ROLE_EDITOR")
      */
     public function edit(Request $request, Artists $artist): Response
     {
@@ -107,6 +111,7 @@ class ArtistsController extends AbstractController
 
     /**
      * @Route("/{id}", name="artists_delete", methods={"POST"})
+     * @isGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Artists $artist): Response
     {
