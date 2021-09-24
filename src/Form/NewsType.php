@@ -25,11 +25,11 @@ class NewsType extends AbstractType
                 'mapped' => false,
                 // 'required' => false,
             ])
-            
             ->add('festival', EntityType::class, [
                 'class' => Festivals::class,
                  'choice_label' => 'title',
             ])
+            
         ;
     }
 

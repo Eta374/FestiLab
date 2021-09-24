@@ -49,11 +49,10 @@
 </div>
 
 <div class="row">
-	<div class="col-lg-2">
-		<a href="{{ path('cities_index') }}">
-			<i class="me-3 fas fa-undo-alt"></i>
-		</a>
-		<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
-	</div>
+
+<div class="col-lg-2">
+<a href="{{ path('cities_index') }}"><i class="me-3 fas fa-undo-alt"></i></a>
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+
 </div>
 	{{ form_end(form) }}

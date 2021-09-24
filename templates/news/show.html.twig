@@ -1,10 +1,59 @@
-{% extends 'base.html.twig' %}
+{% if is_granted("ROLE_EDITOR") %}
+    {% set base = 'baseAdmin.html.twig' %}
+{% else %}
+    {% set base = 'base.html.twig' %}
+{% endif %}
+{% extends base %}
 
-{% block title %}News{% endblock %}
+{% block title %}
+News
+{% endblock %}
 
 {% block body %}
-
-<section class="bg-primary-custom">
+	<h1>News</h1>
+{% if is_granted("ROLE_EDITOR") %}
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ news.id }}</td>
+			</tr>
+			<tr>
+				<th>Image</th>
+				<td>
+                 <img class="img-miniature" src="{{ asset('uploads/news_pictures/' ~ news.picture) }}">
+                </td>
+			</tr>
+            <tr>
+				<th>Nom de l'image</th>
+				<td>
+                {{ news.picture }}
+                </td>
+			</tr>
+			<tr>
+				<th>Titre</th>
+				<td>{{ news.Name }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ news.description|raw }}</td>
+			</tr>
+			<tr>
+				<th>Festival</th>
+				<td>{{ news.festival.title }}</td>
+			</tr>
+			<tr>
+				<th>Date de création</th>
+				<td>{{ news.createdAt ? news.createdAt|date('Y-m-d H:i:s') : ''  }}</td>
+			</tr>
+		
+		</tbody>
+	</table>
+	<a href="{{ path('news_index') }}"><i class="me-3 fas fa-undo-alt"></i></a>
+	<a href="{{ path('news_edit', {'id': news.id}) }}"><i class="far fa-edit"></i></a>
+	{{ include('news/_delete_form.html.twig') }}
+{% else %}
+    <section class="bg-primary-custom">
 
     <div class="container bg-light-custom py-5 d-flex justify-content-center">
 
@@ -21,13 +70,5 @@
     </div>
 
 </section>
-
-
-
-
-
-
-
-
-
+{% endif %}
 {% endblock %}
