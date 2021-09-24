@@ -34,7 +34,9 @@
 				
 
 				<ul class="navbar-nav justify-content-end mb-2 mb-lg-0">
+					{% if app.user %}
 					<p class="text-light pseudo">Bienvenue {{ app.user.pseudo }}</p>
+					{% endif %}
 					<li class="nav-item">
 						<a class="nav-link navbarText" aria-current="page" href="{{ path('home') }}">
 							<i class="fas fa-home"></i>
