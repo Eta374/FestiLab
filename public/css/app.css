@@ -40,7 +40,7 @@ html {
   transition: 1s;
 }
 
-.boxout {
+.boxout, .personne {
   margin-right: 1rem;
 }
 
@@ -114,10 +114,6 @@ section .contact {
   margin-bottom: 40px;
 }
 
-body {
-  background-color: rgba(126, 203, 182, 0.4);
-}
-
 article {
   padding-left: 20px;
   padding-right: 20px;
@@ -157,6 +153,11 @@ article .card1 {
   margin-bottom: 50px;
   -webkit-box-shadow: 2.5px 2.5px 10px #7ecbb6;
           box-shadow: 2.5px 2.5px 10px #7ecbb6;
+}
+
+.null {
+  height: 100vh;
+  background-color: rgba(126, 203, 182, 0.4);
 }
 
 footer .copyright {

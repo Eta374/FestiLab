@@ -1,9 +1,15 @@
-{% extends 'baseAdmin.html.twig' %}
+{% if is_granted("ROLE_EDITOR") %}
+{% set base = 'baseAdmin.html.twig' %}
+{% else %}
+{% set base = 'base.html.twig' %}
+{% endif %}
+{% extends base %}
 
 {% block title %}News{% endblock %}
 
 {% block body %}
-    <h1>News</h1>
+<section class="container">
+    <h1>Articles</h1>
 
     <table class="table">
         <thead>
@@ -17,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for news in news %}
+            {% for news in news %}
             <tr>
                 {# <td>{{ news.id }}</td> #}
                 <td>{{ news.Name }}</td>
@@ -29,13 +35,15 @@
                     <a href="{{ path('news_edit', {'id': news.id}) }}"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
-        {% else %}
+            {% else %}
             <tr>
                 <td colspan="6">no records found</td>
             </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
 
     <a href="{{ path('news_new') }}"><i class="far fa-plus-square"></i></a>
+</section>
+
 {% endblock %}

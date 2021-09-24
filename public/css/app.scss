@@ -58,7 +58,7 @@ $thirdColorl: rgba(126, 203, 182, 0.4);
     }
 }
 
-.boxout {
+.boxout, .personne {
     margin-right: 1rem;
 }
 
@@ -135,12 +135,6 @@ section {
     }
 }
 
-// BODY
-// ================================================================
-
-body {
-    background-color: $thirdColorl;
-}
 
 // ARTICLE
 // ================================================================
@@ -180,6 +174,11 @@ article {
             margin-bottom: 50px;
             box-shadow: 2.5px 2.5px 10px $thirdColor;
         }
+}
+
+.null {
+    height: 100vh;
+    background-color: $thirdColorl;
 }
 
 // FOOTER
