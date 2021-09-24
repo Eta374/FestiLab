@@ -35,6 +35,16 @@ nav i:hover {
   transition: 1s;
 }
 
+.pseudo {
+  margin-right: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #7ecbb6 !important;
+}
+
 section {
   background-color: rgba(126, 203, 182, 0.4);
 }
@@ -119,3 +129,4 @@ footer .copyright a:hover {
   height: 100px;
   width: 100px;
 }/*# sourceMappingURL=appAdmin.css.map */
+
