@@ -34,7 +34,7 @@ class Pictures
 
     /**
      * @ORM\ManyToOne(targetEntity=Festivals::class, inversedBy="pictures")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $festival;
 
