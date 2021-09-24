@@ -6,7 +6,18 @@
 <section class="bg-primary-custom">
   {# div container carousel #}
   <div class="container bg-light-custom py-5 d-flex justify-content-center">
-    <div id="carouselExampleIndicators" class="carousel slide w-75" data-bs-ride="carousel">
+    <div id="carouselExampleSlidesOnly" class="carousel slide w-75" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        {% for key, news in newsFilter %}
+        <div class="carousel-item {% if key == 0 %}active{% endif %} data-bs-interval="4000">
+          <a href="{{ path('news_show', {'id': news.id}) }}">
+            <img src="{{asset('uploads/news_pictures/')}}{{news.picture}}" class="d-block w-100" alt="...">
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {# <div id="carouselExampleIndicators" class="carousel slide w-75" data-bs-ride="carousel">
       <div class="carousel-inner">
         {% for news in newsFilter %}
         {% if loop.first %}
@@ -23,9 +34,20 @@
         </div>
         {% endfor %}
       </div>
-    </div>
+    </div>#}
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
 
 <section style="height: 20vh;" class="bg-dark-custom">
 </section>
