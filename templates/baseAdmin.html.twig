@@ -31,9 +31,10 @@
 			<div class="container-fluid">
 				<a class="navbar-brand" href="{{ path('home') }}"><img class="w-25 img-fluid"
 						src="{{ asset('img/Festilab.png')}}" alt="FestiLab"></a>
-				{# <p class="pseudo">Bienvenue {{ app.user.pseudo }}</p> #}
+				
 
-				<ul class="navbar-nav justify-content-end me-auto mb-2 mb-lg-0">
+				<ul class="navbar-nav justify-content-end mb-2 mb-lg-0">
+					<p class="text-light pseudo">Bienvenue {{ app.user.pseudo }}</p>
 					<li class="nav-item">
 						<a class="nav-link navbarText" aria-current="page" href="{{ path('home') }}">
 							<i class="fas fa-home"></i>
@@ -42,7 +43,7 @@
 
 					<li class="nav-item">
 						<a class="nav-link navbarText" aria-current="page" href="{{ path('app_logout') }}">
-							<i class="fas fa-user-times"></i>
+							<i class="fas fa-sign-out-alt"></i>
 						</a>
 					</li>
 				</ul>
@@ -53,7 +54,7 @@
 	<section class="d-flex flex-row">
 		{% if app.user %}
 		<nav class="nav shadow gche flex-column bg-third-custom">
-			<a class="nav-link navbarAd" href="{{ path('user_index') }}">Dashboard</a>
+			<a class="nav-link navbarAd" href="{{ path('dashboad') }}">Dashboard</a>
 			<a class="nav-link navbarAd" href="{{ path('festivals_index') }}">Festival</a>
 			<a class="nav-link navbarAd" href="{{ path('artists_index') }}">Artiste</a>
 			<a class="nav-link navbarAd" href="{{ path('places_index') }}">Lieu</a>
@@ -65,7 +66,7 @@
 			{% if is_granted("ROLE_ADMIN") %}
 			<a class="nav-link navbarAd" href="{{ path('publics_index') }}">Publique</a>
 			{% endif %}
-			<a class="nav-link navbarAd" href="{{ path('news_index') }}">New</a>
+			<a class="nav-link navbarAd" href="{{ path('news_index') }}">Actualités</a>
 			<a class="nav-link navbarAd" href="{{ path('patners_index') }}">Partenaires</a>
 			{% if is_granted("ROLE_ADMIN") %}
 			<a class="nav-link navbarAd" href="{{ path('user_index') }}">Utilisateur</a>

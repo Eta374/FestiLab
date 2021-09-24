@@ -18,11 +18,13 @@ use Countable;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class DashboadController extends AbstractController
 {
     /**
      * @Route("/dashboad", name="dashboad")
+     * @isGranted("ROLE_EDITOR")
      */
     public function index(ContactUsRepository $contactUsRepository, NewsRepository $newsRepository, FestivalsRepository $festivalsRepository, ArtistsRepository $artistsRepository, PatnersRepository $patnersRepository, UserRepository $userRepository, KindsRepository $kindsRepository, PublicsRepository $publicsRepository, PlacesRepository $placesRepository, CitiesRepository $citiesRepository, DepartmentsRepository $departmentsController): Response
     {
