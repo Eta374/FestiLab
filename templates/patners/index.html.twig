@@ -18,7 +18,7 @@
         {% for patner in patners %}
             <tr>
                 <td>{{ patner.name }}</td>
-                <td><img class="img-min" src="{{ asset('uploads/artists_pictures/'~patner.picture) }}" alt="{{ patner.picture }}"></td>
+                <td><img class="img-min" src="{{ asset('uploads/partners_pictures/'~patner.picture) }}" alt="{{ patner.picture }}"></td>
                 <td>{{ patner.websiteLink }}</td>
                 <td>
                     <a href="{{ path('patners_show', {'id': patner.id}) }}"><i class="me-3 far fa-eye"></i></a>

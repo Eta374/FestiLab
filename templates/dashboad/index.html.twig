@@ -28,7 +28,7 @@
                         {% for new in news_filter %}
                             <tr>
                                 <td>{{new.name}}</td>
-                                <td>{{news.description}}</td>
+                                <td>{{new.description|raw}}</td>
                             </tr>
                         {% endfor %}
                       </tr>
@@ -44,7 +44,7 @@
                         {% for festival in festivals_filter %}
                             <tr>
                                 <td>{{festival.title}}</td>
-                                <td>{{festival.description}}</td>
+                                <td>{{festival.description|raw}}</td>
                             </tr>
                         {% endfor %}
                       </tr>

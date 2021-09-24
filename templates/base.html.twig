@@ -51,12 +51,9 @@
           <li class="nav-item me-5">
             <a class="nav-link active" aria-current="page" href="{{ path('contact_us_new') }}">Contact</a>
           </li>
-          {% if is_granted('ROLE_ADMIN') %}
-          <li class="nav-item me-5">
-            <a class="nav-link active" aria-current="page" href="{{ path('user_index') }}">User</a>
-          </li>
-          <li class="nav-item me-5">
-            <a class="nav-link active" aria-current="page" href="{{ path('publics_index') }}">Public</a>
+          {% if is_granted('ROLE_EDITOR') %}
+          <li>
+            <a href="{{ path('dashboad') }}"><i class="fas fa-tools"></i></a>
           </li>
           {% endif %}
         </ul>
@@ -73,7 +70,7 @@
           </form> -->
 
           {% if app.user %}
-          <li class="nav-item personne"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"
+          <li class="nav-item personne text-light"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white"
               class="bi bi-person-fill" viewBox="0 0 16 16">
               <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
             </svg>{{ app.user.pseudo }}
@@ -92,19 +89,9 @@
           </li>
           {% else %}
 
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_register') }}"><svg xmlns="http://www.w3.org/2000/svg" width="30"
-                height="30" fill="white" class="bi bi-person-plus-fill ml-3 mr-2 align-middle" viewBox="0 0 16 16">
-                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                <path fill-rule="evenodd"
-                  d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-              </svg>Créer un compte</a>
-          </li>
-
           <li class="nav-item">
             <a class="nav-link text-end" href="{{ path('app_login') }}"><svg xmlns="http://www.w3.org/2000/svg"
-                width="30" height="30" fill="white" class="bi bi-box-arrow-in-left ml-3 mr-2 align-middle"
+                width="30" height="30" fill="white" class="bi bi-box-arrow-in-left align-middle boxout"
                 viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
                   d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z" />
