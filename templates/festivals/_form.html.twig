@@ -1,5 +1,130 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    
+<div class="row">
+	<div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Titre</span>
+			{{ form_widget(form.title) }}
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Durée</span>
+			{{ form_widget(form.duration) }}
+		</div>
+	</div>
+    <div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Prix</span>
+			{{ form_widget(form.price) }}
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Description</span>
+			{{ form_widget(form.description) }}
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Lien site web</span>
+			{{ form_widget(form.websiteLink) }}
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Lien Billeterie</span>
+			{{ form_widget(form.ticketOfficeLink) }}
+		</div>
+	</div>
+    <div class="col-lg-4">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Lien Réseaux sociaux</span>
+			{{ form_widget(form.socialLink) }}
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-2">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Tête de gondole</span>
+			{{ form_widget(form.tdg) }}
+		</div>
+	</div>
+	<div class="col-lg-3">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Date de début</span>
+			{{ form_widget(form.dateStart) }}
+		</div>
+	</div>
+    <div class="col-lg-3">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Date de fin</span>
+			{{ form_widget(form.dateEnd) }}
+		</div>
+	</div>
+    <div class="col-lg-2">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Genre</span>
+			{{ form_widget(form.kind) }}
+		</div>
+	</div>
+    <div class="col-lg-2">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Publique</span>
+			{{ form_widget(form.public) }}
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Lieu</span>
+			{{ form_widget(form.places) }}
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Artistes</span>
+			{{ form_widget(form.artists) }}
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Images</span>
+			{{ form_widget(form.images) }}
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="input-group mb-3">
+			<span class="input-group-text" id="basic-addon1">Description Image</span>
+			{{ form_widget(form.description_images) }}
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
     {# Si la route est "annonces_edit on affiche les images #}
 	{% if app.request.attributes.get('_route') == 'festivals_edit' %}
     <h2>Images actuel</h2>
@@ -10,5 +135,11 @@
         </div>
     {% endfor %}
 {% endif %}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+
+<div class="row">
+<div class="col-lg-2">
+<a href="{{ path('festivals_index') }}"><i class="me-3 fas fa-undo-alt"></i></a>
+<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+</div>
+
 {{ form_end(form) }}

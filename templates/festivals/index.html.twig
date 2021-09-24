@@ -1,48 +1,48 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Festivals index{% endblock %}
+{% block title %}Festivals{% endblock %}
 
 {% block body %}
-    <h1>Festivals index</h1>
+    <h1>Festivals</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
+                {# <th>Id</th> #}
+                <th>Titre</th>
                 <th>Description</th>
-                <th>Price</th>
-                <th>Duration</th>
-                <th>WebsiteLink</th>
-                <th>TicketOfficeLink</th>
-                <th>SocialLink</th>
-                <th>Tdg</th>
-                <th>DateStart</th>
-                <th>DateEnd</th>
-                <th>CreatedAt</th>
-                <th>ModifiedAt</th>
+                {# <th>Price</th> #}
+                <th>Durée</th>
+                {# <th>WebsiteLink</th> #}
+                {# <th>TicketOfficeLink</th> #}
+                {# <th>SocialLink</th> #}
+                {# <th>Tdg</th> #}
+                <th>Date du début</th>
+                {# <th>DateEnd</th> #}
+                {# <th>CreatedAt</th> #}
+                {# <th>ModifiedAt</th> #}
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for festival in festivals %}
             <tr>
-                <td>{{ festival.id }}</td>
+                {# <td>{{ festival.id }}</td> #}
                 <td>{{ festival.title }}</td>
                 <td>{{ festival.description|raw }}</td>
-                <td>{{ festival.price }}</td>
+                {# <td>{{ festival.price }}</td> #}
                 <td>{{ festival.duration }}</td>
-                <td>{{ festival.websiteLink }}</td>
+                {# <td>{{ festival.websiteLink }}</td>
                 <td>{{ festival.ticketOfficeLink }}</td>
                 <td>{{ festival.socialLink }}</td>
-                <td>{{ festival.tdg ? 'Yes' : 'No' }}</td>
+                <td>{{ festival.tdg ? 'Yes' : 'No' }}</td> #}
                 <td>{{ festival.dateStart ? festival.dateStart|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ festival.dateEnd ? festival.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ festival.dateEnd ? festival.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ festival.createdAt ? festival.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ festival.modifiedAt ? festival.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('festivals_show', {'id': festival.id}) }}">show</a>
-                    <a href="{{ path('festivals_edit', {'id': festival.id}) }}">edit</a>
+                <td>{{ festival.modifiedAt ? festival.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                <td> 
+                    <a href="{{ path('festivals_show', {'id': festival.id}) }}"><i class="me-3 far fa-eye"></i></a>
+                    <a href="{{ path('festivals_edit', {'id': festival.id}) }}"><i class="far fa-edit"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -53,5 +53,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('festivals_new') }}">Create new</a>
+    <a href="{{ path('festivals_new') }}"><i class="far fa-plus-square"></i></a>
 {% endblock %}

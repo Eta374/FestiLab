@@ -6,6 +6,7 @@ use App\Entity\Festivals;
 use App\Entity\Pictures;
 use App\Form\FestivalsType;
 use App\Repository\FestivalsRepository;
+use App\Repository\PicturesRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,6 +21,7 @@ class FestivalsController extends AbstractController
 {
     /**
      * @Route("/", name="festivals_index", methods={"GET"})
+     * isGranted("ROLE_EDITOR")
      */
     public function index(FestivalsRepository $festivalsRepository): Response
     {
@@ -30,6 +32,7 @@ class FestivalsController extends AbstractController
 
     /**
      * @Route("/new", name="festivals_new", methods={"GET","POST"})
+     * isGranted("ROLE_EDITOR")
      */
     public function new(Request $request): Response
     {
@@ -84,15 +87,17 @@ class FestivalsController extends AbstractController
     /**
      * @Route("/{id}", name="festivals_show", methods={"GET"})
      */
-    public function show(Festivals $festival): Response
+    public function show(Festivals $festival, PicturesRepository $picturesRepository): Response
     {
         return $this->render('festivals/show.html.twig', [
+            'pictures' => $picturesRepository->findAll(),
             'festival' => $festival,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="festivals_edit", methods={"GET","POST"})
+     * isGranted("ROLE_EDITOR")
      */
     public function edit(Request $request, Festivals $festival): Response
     {
@@ -134,6 +139,7 @@ class FestivalsController extends AbstractController
 
     /**
      * @Route("/{id}", name="festivals_delete", methods={"POST"})
+     * isGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Festivals $festival): Response
     {
