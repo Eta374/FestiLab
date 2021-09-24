@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/news")
@@ -18,6 +19,7 @@ class NewsController extends AbstractController
 {
     /**
      * @Route("/", name="news_index", methods={"GET"})
+     * isGranted("ROLE_EDITOR")
      */
     public function index(NewsRepository $newsRepository): Response
     {
@@ -28,6 +30,7 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/new", name="news_new", methods={"GET","POST"})
+     * isGranted("ROLE_EDITOR")
      */
     public function new(Request $request): Response
     {
@@ -75,6 +78,7 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="news_edit", methods={"GET","POST"})
+     * isGranted("ROLE_EDITOR")
      */
     public function edit(Request $request, News $news): Response
     {
@@ -107,6 +111,7 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/{id}", name="news_delete", methods={"POST"})
+     * isGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, News $news): Response
     {
