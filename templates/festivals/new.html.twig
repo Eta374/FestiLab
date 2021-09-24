@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}New Festivals{% endblock %}
+{% block title %}Nouveau Festival{% endblock %}
 
 {% block body %}
-    <h1>Create new Festivals</h1>
+    <h1>Nouveau Festival</h1>
 
     {{ include('festivals/_form.html.twig') }}
 
-    <a href="{{ path('festivals_index') }}">back to list</a>
+   
 {% endblock %}

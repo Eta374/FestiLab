@@ -1,70 +1,129 @@
-{% extends 'base.html.twig' %}
+{% if is_granted("ROLE_EDITOR") %}
+	{% set base = 'baseAdmin.html.twig' %}
+{% else %}
+	{% set base = 'base.html.twig' %}
+{% endif %}
+{% extends base %}
 
-{% block title %}Festivals{% endblock %}
+{% block title %}
+	Festival
+{% endblock %}
 
 {% block body %}
-    <h1>Festivals</h1>
+	<h1>Festival</h1>
+	{% if is_granted("ROLE_EDITOR") %}
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ festival.id }}</td>
+				</tr>
+				<tr>
+					<th>Titre</th>
+					<td>{{ festival.title }}</td>
+				</tr>
+				<tr>
+					<th>Image</th>
+					<td>
+						{% if festival.pictures is not empty %}
+							<div class="row align-items-start">
+								{% for picture in festival.pictures %}
+									<div class="col-lg-4">
+										<img class="w-50" src="{{ asset('uploads/festivals_pictures/'~festival.title~'/'~picture.name) }}" alt="">
+									</div>
+								{% endfor %}
+							</div>
+						
+						{% endif %}
+					</td>
+				</tr>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ festival.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ festival.title }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ festival.description|raw }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ festival.price }}</td>
-            </tr>
-            <tr>
-                <th>Duration</th>
-                <td>{{ festival.duration }}</td>
-            </tr>
-            <tr>
-                <th>WebsiteLink</th>
-                <td>{{ festival.websiteLink }}</td>
-            </tr>
-            <tr>
-                <th>TicketOfficeLink</th>
-                <td>{{ festival.ticketOfficeLink }}</td>
-            </tr>
-            <tr>
-                <th>SocialLink</th>
-                <td>{{ festival.socialLink }}</td>
-            </tr>
-            <tr>
-                <th>Tdg</th>
-                <td>{{ festival.tdg ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>DateStart</th>
-                <td>{{ festival.dateStart ? festival.dateStart|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>DateEnd</th>
-                <td>{{ festival.dateEnd ? festival.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ festival.createdAt ? festival.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>ModifiedAt</th>
-                <td>{{ festival.modifiedAt ? festival.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+				<tr>
+					<th>Nom de l'image</th>
+					<td>
+						{% if festival.pictures is not empty %}
+							<div class="row align-items-start">
+								{% for picture in festival.pictures %}
+									{{ picture.name}}
+								{% endfor %}
+							</div>
+							
+						{% endif %}
+					</td>
 
-    <a href="{{ path('festivals_index') }}">back to list</a>
+				</tr>
 
-    <a href="{{ path('festivals_edit', {'id': festival.id}) }}">edit</a>
+				<tr>
+					<th>Description de l'image</th>
+					<td>
+						{% if festival.pictures is not empty %}
+							<div class="row align-items-start">
+								{% for picture in festival.pictures %}
+									{{ picture.description}}
+								{% endfor %}
+							</div>
+							
+						{% endif %}
+					</td>
+				</tr>
 
-    {{ include('festivals/_delete_form.html.twig') }}
+				<tr>
+					<th>Description</th>
+					<td>{{ festival.description|raw }}</td>
+				</tr>
+				<tr>
+					<th>Prix</th>
+					<td>{{ festival.price }}</td>
+				</tr>
+				<tr>
+					<th>Durée</th>
+					<td>{{ festival.duration }}</td>
+				</tr>
+				<tr>
+					<th>Lien site internet</th>
+					<td>{{ festival.websiteLink }}</td>
+				</tr>
+				<tr>
+					<th>Lien billeterie</th>
+					<td>{{ festival.ticketOfficeLink }}</td>
+				</tr>
+				<tr>
+					<th>Lien réseaux sociaux</th>
+					<td>{{ festival.socialLink }}</td>
+				</tr>
+				<tr>
+					<th>Tête de gondole</th>
+					<td>{{ festival.tdg ? 'Yes' : 'No' }}</td>
+				</tr>
+				<tr>
+					<th>Date début</th>
+					<td>{{ festival.dateStart ? festival.dateStart|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Date de fin</th>
+					<td>{{ festival.dateEnd ? festival.dateEnd|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Date création d'article</th>
+					<td>{{ festival.createdAt ? festival.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Date modification d'article</th>
+					<td>{{ festival.modifiedAt ? festival.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<a href="{{ path('festivals_index') }}">
+			<i class="me-3 fas fa-undo-alt"></i>
+		</a>
+
+		<a href="{{ path('festivals_edit', {'id': festival.id}) }}">
+			<i class="far fa-edit"></i>
+		</a>
+
+		{{ include('festivals/_delete_form.html.twig') }}
+		{% else %}
+	{% endif %}
+
 {% endblock %}
