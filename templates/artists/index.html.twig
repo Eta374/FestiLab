@@ -1,14 +1,13 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Artists index{% endblock %}
+{% block title %}Artistes{% endblock %}
 
 {% block body %}
-    <h1>Artists index</h1>
+    <h1>Artistes</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Descripton</th>
                 <th>SocialLink</th>
@@ -19,15 +18,12 @@
         <tbody>
         {% for artist in artists %}
             <tr>
-                <td>{{ artist.id }}</td>
                 <td>{{ artist.name }}</td>
                 <td>{{ artist.descripton }}</td>
                 <td>{{ artist.socialLink }}</td>
-
                 <td>
-                    <img class="img-miniature" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt="{{ artist.picture }}">
+                    <img class="img-min img-fluid" src="{{ asset('uploads/artists_pictures/'~artist.picture) }}" alt="{{ artist.picture }}">
                 </td>
-
                 <td>
                     <a href="{{ path('artists_show', {'id': artist.id}) }}"><i class="far fa-eye"></i></a>
                     <a href="{{ path('artists_edit', {'id': artist.id}) }}"><i class="far fa-edit"></i></a>

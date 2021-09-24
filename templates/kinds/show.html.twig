@@ -1,26 +1,27 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Kinds{% endblock %}
+{% block title %}Genre{% endblock %}
 
 {% block body %}
-    <h1>Kinds</h1>
+<h1>Genre</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ kind.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ kind.name }}</td>
-            </tr>
-        </tbody>
-    </table>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ kind.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ kind.name }}</td>
+        </tr>
+    </tbody>
+</table>
 
-    <a href="{{ path('kinds_index') }}">back to list</a>
+<a href="{{ path('kinds_index') }}"><i class="me-3 fas fa-undo-alt"></i></a>
 
-    <a href="{{ path('kinds_edit', {'id': kind.id}) }}">edit</a>
-
-    {{ include('kinds/_delete_form.html.twig') }}
+<a href="{{ path('kinds_edit', {'id': kind.id}) }}"><i class="far fa-edit"></i></a>
+{% if is_granted('ROLE_ADMIN') %}
+{{ include('kinds/_delete_form.html.twig') }}
+{% endif %}
 {% endblock %}

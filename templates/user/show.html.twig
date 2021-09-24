@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Utilisateur{% endblock %}
 
 {% block body %}
-<h1>User</h1>
+<h1>Utilisateur</h1>
 
 <table class="table">
     <tbody>
@@ -16,10 +16,6 @@
             <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
         </tr>
         <tr>
-            <th>Password</th>
-            <td>{{ user.password }}</td>
-        </tr>
-        <tr>
             <th>IsVerified</th>
             <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
         </tr>
@@ -27,22 +23,16 @@
             <th>Pseudo</th>
             <td>{{ user.pseudo }}</td>
         </tr>
-        <tr>
-            <th>CreatedAt</th>
-            <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-        </tr>
-        <tr>
-            <th>ModifiedAt</th>
-            <td>{{ user.modifiedAt ? user.modifiedAt|date('Y-m-d H:i:s') : '' }}</td>
-        </tr>
     </tbody>
 </table>
 {% if is_granted('ROLE_ADMIN') %}
-<a href="{{ path('user_index') }}">back to list</a>
+<a href="{{ path('user_index') }}"><i class="me-3 fas fa-undo-alt"></i></a>
 {% else %}
-<a href="{{ path('home') }}">back to home</a>
+<a href="{{ path('home') }}"><i class="fas fa-home"></i></a>
 {% endif %}
-<a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+{% if is_granted('ROLE_ADMIN') %}
+<a href="{{ path('user_edit', {'id': user.id}) }}"><i class="far fa-edit"></i></a>
+{% endif %}
 
 {% if is_granted('ROLE_ADMIN') %}
 {{ include('user/_delete_form.html.twig') }}

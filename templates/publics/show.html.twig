@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Publics{% endblock %}
+{% block title %}Public{% endblock %}
 
 {% block body %}
-    <h1>Publics</h1>
+    <h1>Public</h1>
 
     <table class="table">
         <tbody>
@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('publics_index') }}">back to list</a>
+    <a href="{{ path('publics_index') }}"><i class="me-3 fas fa-undo-alt"></i></a>
 
-    <a href="{{ path('publics_edit', {'id': public.id}) }}">edit</a>
+    <a href="{{ path('publics_edit', {'id': public.id}) }}"><i class="far fa-edit"></i></a>
 
     {{ include('publics/_delete_form.html.twig') }}
 {% endblock %}

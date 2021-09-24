@@ -1,13 +1,13 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Edit Artists{% endblock %}
+{% block title %}Modifier Artiste{% endblock %}
 
 {% block body %}
-    <h1>Edit Artists</h1>
+<h1>Modifier Artiste</h1>
 
-    {{ include('artists/_form.html.twig', {'button_label': 'Update'}) }}
+{{ include('artists/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a href="{{ path('artists_index') }}">back to list</a>
-
-    {{ include('artists/_delete_form.html.twig') }}
+{% if is_granted('ROLE_ADMIN') %}
+{{ include('artists/_delete_form.html.twig') }}
+{% endif %}
 {% endblock %}

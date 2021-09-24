@@ -97,6 +97,25 @@ article .card1 {
           box-shadow: 2.5px 2.5px 10px #7ecbb6;
 }
 
+#user_roles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#user_roles .form-check {
+  margin-left: 1rem;
+}
+
+.img-min {
+  height: 150px;
+  width: 200px;
+
+}
+
 footer .copyright {
   color: #7ecbb6;
   text-align: center;
@@ -114,8 +133,10 @@ footer .copyright a:hover {
   transition: 1s;
 }
 
+
 .img-miniature {
   height: 100px;
   width: 100px;
 }
+
 /*# sourceMappingURL=appAdmin.css.map */
