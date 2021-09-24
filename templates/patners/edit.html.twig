@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Edit Patners{% endblock %}
+{% block title %}Modifier Partenaire{% endblock %}
 
 {% block body %}
-    <h1>Edit Patners</h1>
+    <h1>Modifier Partenaire</h1>
 
     {{ include('patners/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('patners_index') }}">back to list</a>
 
     {{ include('patners/_delete_form.html.twig') }}
 {% endblock %}

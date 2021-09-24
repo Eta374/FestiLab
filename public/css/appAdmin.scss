@@ -124,6 +124,26 @@ article {
         }
 }
 
+// USER
+// ================================================================
+
+#user_roles {
+    display: flex;
+    align-items: center;
+
+    .form-check {
+        margin-left: 1rem;
+    }
+}
+
+// PERSONNALISATION DES IMAGES PARTENAIRES DANS L'INDEX
+// ================================================================
+
+
+.img-min {
+    height: 150px;
+    width: 200px;
+}
 
 // FOOTER
 // ================================================================
@@ -147,6 +167,8 @@ footer {
     }
 }
 .img-miniature {
- height: 100px;
- 
-}
+
+    height: 100px;
+    width: 100px;
+  }
+

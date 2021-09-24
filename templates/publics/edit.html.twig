@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Edit Publics{% endblock %}
 
 {% block body %}
-    <h1>Edit Publics</h1>
+    <h1>Modifier Place</h1>
 
-    {{ include('publics/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('publics_index') }}">back to list</a>
+    {{ include('publics/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+    {# <i class="far fa-save"></i> #}
 
     {{ include('publics/_delete_form.html.twig') }}
 {% endblock %}
