@@ -8,14 +8,16 @@ use App\Entity\Artists;
 use App\Entity\Publics;
 use App\Entity\Festivals;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+
 
 class FestivalsType extends AbstractType
 {
@@ -63,6 +65,11 @@ class FestivalsType extends AbstractType
                 'multiple' => true,
                 'mapped' => false,
                 'required' => false
+            ])
+            ->add('description_images', TextareaType::class,[
+                'label' => false,
+                'mapped' => false,
+                'attr' => ['maxlength' => 100],
             ])
         ;
     }

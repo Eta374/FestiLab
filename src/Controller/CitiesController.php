@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/cities")
+ * isGranted("ROLE_ADMIN")
  */
 class CitiesController extends AbstractController
 {
