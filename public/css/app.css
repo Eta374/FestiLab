@@ -26,7 +26,6 @@ html {
 *
 */
 .navbar {
-
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 150%;
 }
@@ -72,7 +71,6 @@ html {
 
 .card-body {
   background-color: #f1f1f1;
-
 }
 
 a {
@@ -85,4 +83,3 @@ a {
   width: 100px;
 }
 /*# sourceMappingURL=app.css.map */
-

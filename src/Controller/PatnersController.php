@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/patners")
@@ -45,7 +46,7 @@ class PatnersController extends AbstractController
             
             // On copie le fichier dans le dossier uploads
             $picture->move(
-                $this->getParameter('artists_pictures_directory'),
+                $this->getParameter('partners_pictures_directory'),
                 $fichier
             );
             $entityManager = $this->getDoctrine()->getManager();
@@ -90,7 +91,7 @@ class PatnersController extends AbstractController
             
             // On copie le fichier dans le dossier uploads
             $picture->move(
-                $this->getParameter('artists_pictures_directory'),
+                $this->getParameter('partners_pictures_directory'),
                 $fichier
             );
             $patner->setPicture($fichier);
