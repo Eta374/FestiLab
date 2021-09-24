@@ -1,33 +1,33 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
-{% block title %}ContactUs index{% endblock %}
+{% block title %}Contacts{% endblock %}
 
 {% block body %}
-    <h1>ContactUs index</h1>
+    <h1>Contacts</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Email</th>
-                <th>Phone</th>
+                {# <th>Phone</th> #}
                 <th>Objet</th>
                 <th>Message</th>
-                <th>CreatedAt</th>
+                {# <th>CreatedAt</th> #}
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for contact_u in contactuses %}
             <tr>
-                <td>{{ contact_u.id }}</td>
+                {# <td>{{ contact_u.id }}</td> #}
                 <td>{{ contact_u.email }}</td>
-                <td>{{ contact_u.phone }}</td>
+                {# <td>{{ contact_u.phone }}</td> #}
                 <td>{{ contact_u.objet }}</td>
                 <td>{{ contact_u.message }}</td>
-                <td>{{ contact_u.createdAt ? contact_u.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ contact_u.createdAt ? contact_u.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('contact_us_show', {'id': contact_u.id}) }}">Voir</a>
+                    <a href="{{ path('contact_us_show', {'id': contact_u.id}) }}"><i class="me-3 far fa-eye"></i></a>
                 </td>
             </tr>
         {% else %}

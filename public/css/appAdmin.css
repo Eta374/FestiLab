@@ -113,6 +113,7 @@ article .card1 {
 .img-min {
   height: 150px;
   width: 200px;
+
 }
 
 footer .copyright {
@@ -131,4 +132,10 @@ footer .copyright a:hover {
   -webkit-transition: 1s;
   transition: 1s;
 }
+
+.img-miniature {
+  height: 100px;
+  width: 100px;
+}
+
 /*# sourceMappingURL=appAdmin.css.map */
